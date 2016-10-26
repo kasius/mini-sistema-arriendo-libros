@@ -13,3 +13,7 @@ Tecnologias utilizadas:
 * Git
 
 * GitHub 
+
+
+Contacto: 999415041
+kcifuentes89@gmail.com
