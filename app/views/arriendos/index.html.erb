@@ -1,0 +1,65 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">System Book</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Sign</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li><a href="/libros">Stock Libros</a></li>
+        <li class="active"><a href="/arriendos">Arriendo Libros <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Export</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">Arriendos</h1>
+      <a class="btn btn-primary" href="/libros/new">New Book</a>
+      <h3 class="sub-header">Libros Arrendados</h3>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nº</th>
+              <th>Nº Libro</th>
+              <th>Nombre L.</th>
+              <th>Cliente</th>
+              <th>Valor</th>
+              <th>Entrega</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @arriendos.each do |arriendo| %>
+          <tr>
+          <td><%= arriendo.id %></td>
+            <td><%= arriendo.idBook %></td>
+            <td><%= arriendo.nombre %></td>
+            <td><%= arriendo.username %><%= arriendo.lastname %></td>
+            <td><%= arriendo.valor %></td>
+            <td><%= arriendo.entrega %></td>
+            <td>
+            <%= link_to 'Return Book',  { action: :destroy, id: arriendo.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning'%>
+            </td>
+          </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

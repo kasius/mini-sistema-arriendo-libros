@@ -1,0 +1,82 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">System Book</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Sign</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li><a href='/libros'>Arriendo Libros <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="/libros/new">Stock Libros</a></li>
+				<li><a href="#">Analytics</a></li>
+				<li><a href="#">Export</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<div class="col-lg-12">
+					<h1 class="page-header">Editing Libro</h1>
+				</div>
+				<div class="table-responsive">
+					<%= form_for :libro, url: @libro, method: :patch do |f| %>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'nombre', 'nombre'%>
+							<%= f.text_field :nombre , name: 'libro[nombre]', id: 'nombre', class: 'form-control', autofocus: true, required: true %>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="form-group">
+							<%= label_tag 'categoria', 'categoria'%>
+							<select name="libro[categoria]" id="categoria" class="form-control">
+								<option value="Literatura">Literatura</option>
+								<option value="Ciencias">Ciencias</option>
+								<option value="Programación">Programación</option>
+								<option value="Animales">Animales</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="form-group">
+							<%= label_tag 'estado', 'estado'%>
+							<select name="libro[estado]" id="estado" class="form-control">
+								<option value="Disponible">Disponible</option>
+								<option value="Arrendado">Arrendado</option>
+								<option value="not">Fuera de Servicio</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'editorial', 'editorial'%>
+							<%= f.text_field :editorial , name: 'libro[editorial]', id: 'editorial', class: 'form-control', required: true %>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'autor', 'autor'%>
+							<%= f.text_field :autor , name: 'libro[autor]', id: 'autor', class: 'form-control', required: true %>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<%= f.submit %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>

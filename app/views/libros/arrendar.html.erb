@@ -1,0 +1,105 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">System Book</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Sign</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+			<li class="active"><a href="/libros">Stock Libros</a></li>
+				<li><a href='/arriendos'>Arriendo Libros <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Analytics</a></li>
+				<li><a href="#">Export</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<div class="col-lg-12">
+					<h1 class="page-header">Arriendo de  Libro</h1>
+				</div>
+				<div class="table-responsive">
+					<%= form_for :arriendo, :url => { :action => :newarriendo } do |f| %>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'nombre', 'nombre'%>
+							<%= f.text_field :nombre , name: 'arriendo[nombre]', id: 'nombre', class: 'form-control', autofocus: true, required: true %>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="form-group">
+							<%= label_tag 'categoria', 'categoria'%>
+							<%= f.text_field :categoria , name: 'arriendo[categoria]', id: 'categoria', class: 'form-control', autofocus: true, required: true %>
+
+							
+						</div>
+						<%= @libro.id %>
+					</div>
+					<div class="col-lg-3">
+						<div class="form-group">
+							<%= label_tag 'estado', 'estado'%>
+							<%= f.text_field :estado , name: 'arriendo[estado]', id: 'estado', class: 'form-control', autofocus: true, required: true %>
+
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'editorial', 'editorial'%>
+							<%= f.text_field :editorial , name: 'arriendo[editorial]', id: 'editorial', class: 'form-control', required: true %>
+							<%= f.text_field :idBook,name: 'arriendo[idBook]', id: 'idBook', :value => @libro.id%>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'autor', 'autor'%>
+							<%= f.text_field :autor , name: 'arriendo[autor]', id: 'autor', class: 'form-control', required: true %>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<h4>Datos Cliente</h4>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'username', 'username'%>
+							<%= text_field_tag :username,params[:username], name: 'arriendo[username]', id: 'username', class: 'form-control', autofocus: true, required: true %>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'lastname', 'lastname'%>
+							<%= text_field_tag :lastname,params[:lastname], name: 'arriendo[lastname]', id: 'lastname', class: 'form-control', autofocus: true, required: true %>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'valor', 'valor'%>
+							<%= text_field_tag :valor,params[:valor], name: 'arriendo[valor]', id: 'valor', class: 'form-control', autofocus: true, required: true %>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<%= label_tag 'entrega', 'entrega'%>
+							<%= text_field_tag :entrega,params[:entrega], name: 'arriendo[entrega]', id: 'entrega', class: 'form-control', autofocus: true, required: true %>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<%= f.submit %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>

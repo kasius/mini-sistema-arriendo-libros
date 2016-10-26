@@ -1,0 +1,2 @@
+class Arriendo < ApplicationRecord
+end
